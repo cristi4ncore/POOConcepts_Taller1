@@ -43,6 +43,7 @@
             DateTime dt = new DateTime(1, 1, 1, _hours, _minutes, _seconds, _milliseconds);
             return dt.ToString("hh:mm:ss.fff tt");
         }
+        // -- Si dese sea otro formato de hora 24H ("HH:mm:ss:fff tt")--
 
         public long ToMilliseconds()
         {
@@ -70,7 +71,7 @@
         {
             long totalMs = this.ToMilliseconds() + other.ToMilliseconds();
             long oneDayMs = 24L * 60 * 60 * 1000;
-            totalMs %= oneDayMs; // Si pasa al otro día, reinicia
+            totalMs %= oneDayMs; 
 
             int hours = (int)(totalMs / 3600000); totalMs %= 3600000;
             int minutes = (int)(totalMs / 60000); totalMs %= 60000;
